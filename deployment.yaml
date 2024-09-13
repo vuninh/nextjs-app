@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextjs-app
+  namespace: nextjs-app
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  minReadySeconds: 10
+  selector:
+    matchLabels:
+      app: nextjs-app
+  template:
+    metadata:
+      labels:
+        app: nextjs-app
+    spec:
+      containers: 
+        - name: nextjs-app
+          image: vuninh/nextjs:v1
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "128M"
+            limits:
+              cpu: "100m"
+              memory: "512M"
+          imagePullPolicy: IfNotPresent
+
