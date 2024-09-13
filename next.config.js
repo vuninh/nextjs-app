@@ -31,6 +31,7 @@ const nextConfig = {
 
     // !!! for docker (`output: 'standalone'`)
     // This will create a folder at .next/standalone which can then be deployed on its own without installing node_modules.
+    // Add following line to create standalone folder when npm run build
     output: "standalone",
     //output: dockerDeploymentEnabled ? 'standalone' : !exportHtmlEnabled ? undefined : 'export',
 
